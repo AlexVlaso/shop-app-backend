@@ -3,20 +3,19 @@ package com.vlasov.projectshop.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Set;
-
 @Entity
-@Table(name="country")
+@Table(name="state")
 @Data
-public class Country {
+public class State {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-    @Column(name="code")
-    private String code;
     @Column(name="name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "county_id")
-    private Set<State> states;
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private int country_id;
+
+
 }
