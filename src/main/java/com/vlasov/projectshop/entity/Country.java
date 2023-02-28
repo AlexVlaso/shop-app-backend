@@ -2,6 +2,7 @@ package com.vlasov.projectshop.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class Country {
     private String code;
     @Column(name="name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "country_id")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "country")
+    @JsonIgnore
     private Set<State> states;
 }
