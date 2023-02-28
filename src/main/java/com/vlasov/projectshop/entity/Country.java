@@ -17,6 +17,6 @@ public class Country {
     private String code;
     @Column(name="name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "county_id")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "country_id")
     private Set<State> states;
 }
