@@ -23,7 +23,7 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Set<Order> orders;
 
-    public void add(Order order){
+    public void addOrder(Order order){
         if(orders==null){
             orders=new HashSet<>();
         }

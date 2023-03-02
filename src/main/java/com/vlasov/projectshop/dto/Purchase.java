@@ -5,6 +5,8 @@ import com.vlasov.projectshop.entity.Customer;
 import com.vlasov.projectshop.entity.Order;
 import com.vlasov.projectshop.entity.OrderItem;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
