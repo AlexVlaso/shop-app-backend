@@ -2,10 +2,13 @@ package com.vlasov.projectshop.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name="order_item")
-@Data
+@Getter
+@Setter
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +20,8 @@ public class OrderItem {
     private int quantity;
     @Column(name="unit_price")
     private double unitPrice;
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @Column(name="product_id")
+    private int product;
     @ManyToOne
     @JoinColumn(name="order_id")
     private Order order;

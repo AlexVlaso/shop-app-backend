@@ -20,7 +20,7 @@ public class Address {
     @Column(name="address")
     private String address;
     @Column(name="zip_code")
-    private int zipCode;
+    private String zipCode;
     @OneToOne
     @PrimaryKeyJoinColumn
     private Order order;

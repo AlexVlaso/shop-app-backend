@@ -1,6 +1,7 @@
 package com.vlasov.projectshop.service;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.sun.source.util.SourcePositions;
 import com.vlasov.projectshop.dao.CustomerRepository;
 import com.vlasov.projectshop.dto.Purchase;
 import com.vlasov.projectshop.dto.PurchaseResponse;
@@ -24,6 +25,7 @@ public class CheckoutServiceImpl implements  CheckoutService{
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
+
         Order order= purchase.getOrder();
 
         String orderTrackingNumber= UUID.randomUUID().toString();

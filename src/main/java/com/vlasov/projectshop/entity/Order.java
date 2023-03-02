@@ -34,7 +34,7 @@ public class Order {
     @Column(name="date_created")
     @CreationTimestamp
     private Date dateCreated;
-    @Column(name="date_updated")
+    @Column(name="last_updated")
     @UpdateTimestamp
     private Date dateUpdated;
     @OneToMany(mappedBy = "order")
