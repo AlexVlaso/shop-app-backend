@@ -3,6 +3,9 @@ package com.vlasov.projectshop.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name="customer")
 @Data
@@ -17,4 +20,14 @@ public class Customer {
     private String lastName;
     @Column(name ="email")
     private String email;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private Set<Order> orders;
+
+    public void add(Order order){
+        if(orders==null){
+            orders=new HashSet<>();
+        }
+        orders.add(order);
+        order.setCustomer(this);
+    }
 }
