@@ -2,6 +2,8 @@ package com.vlasov.projectshop.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,7 +13,8 @@ import java.util.List;
 
 @Entity
 @Table(name="orders")
-@Data
+@Getter
+@Setter
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +40,7 @@ public class Order {
     @Column(name="last_updated")
     @UpdateTimestamp
     private Date dateUpdated;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(cascade = CascadeType.ALL , mappedBy = "order")
     private List<OrderItem> orderItems;
 
     public void add(OrderItem orderItem){

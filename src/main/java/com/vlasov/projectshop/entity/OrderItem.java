@@ -1,7 +1,6 @@
 package com.vlasov.projectshop.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +20,7 @@ public class OrderItem {
     @Column(name="unit_price")
     private double unitPrice;
     @Column(name="product_id")
-    private int product;
+    private int productId;
     @ManyToOne
     @JoinColumn(name="order_id")
     private Order order;
