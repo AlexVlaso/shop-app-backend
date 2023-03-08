@@ -30,7 +30,7 @@ public class Order {
     @JoinColumn(name="customer_id")
     private Customer customer;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
+    @JoinColumn(name = "shipping_address_id")
     private Address address;
     @Column(name="status")
     private String status;
@@ -40,7 +40,7 @@ public class Order {
     @Column(name="last_updated")
     @UpdateTimestamp
     private Date dateUpdated;
-    @OneToMany(cascade = CascadeType.ALL , mappedBy = "order")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "order")
     private List<OrderItem> orderItems;
 
     public void add(OrderItem orderItem){
@@ -50,6 +50,5 @@ public class Order {
         }
         orderItems.add(orderItem);
         orderItem.setOrder(this);
-
     }
 }
